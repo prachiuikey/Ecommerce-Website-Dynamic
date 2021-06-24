@@ -1,0 +1,39 @@
+<%- include('../includes/head.ejs') %>
+        <%- include('../includes/navigation.ejs') %>
+        </div>
+
+            
+            <div class="small-container">
+                <% if (prods.length > 0) { %>
+                    <div class="row">
+                        <% for (let product of prods) { %>
+                                               
+                            <div class="col-4">
+                                <img src="<%= product.imageUrl %>" alt="<%= product.name %>">
+                                    <h4><%= product.title %></h4>
+                                        <div class="add-to-cart">
+                                            <span class="price"><%= product.price %></span>
+                                            <button class="btn">Add to Cart</button>
+                                        </div>
+                                        <div class="edit-delete">
+                                            <form action="/admin/delete-product" method="POST">
+                                                <a href="/admin/edit-product/<%= product.id %>?edit=true" class="edit-btn">Edit</a>
+                                                <input type="hidden" value="<%= product.id %>" name="productId">
+                                                <button class="delete-btn" type="submit">Delete</button>
+                                            </form>
+            
+                                        </div>
+                                        <p class="para">
+                                            <%= product.description %>
+                                        </p>    
+                            </div>
+                            
+                            
+        
+                            <% } %>
+                    </div>
+                    <% } else { %>
+                        <h1>No Products Found!</h1>
+                        <% } %>
+        </div>
+            <%- include('../includes/footer.ejs') %>
