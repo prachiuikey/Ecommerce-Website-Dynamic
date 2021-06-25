@@ -1,0 +1,200 @@
+<%- include('../includes/head.ejs') %>
+
+<%- include('../includes/navigation.ejs') %>
+
+
+<div class="row">
+    <div class="col-2">
+        <h1>A Style For <br>Every Story</h1>
+        <p>Style is a way to say who you are without having to speak.
+            <br>Find your own style!</p>
+            <a href="http://localhost:5000/product" class="explore-btn">Explore Now &#8594;</a>
+    </div>
+    <div class="col-2">
+        <img src="Photos/images/image1.png">
+    </div>
+</div>
+</div>
+</div>
+
+<!-------- featured categories -------->
+
+<div class="category">
+<div class="small-container">
+<div class="row">
+    <div class="col-3">
+        <img src="Photos/images/category-1.jpg">
+    </div>
+    <div class="col-3">
+        <img src="Photos/images/category-2.jpg">
+    </div>
+    <div class="col-3">
+        <img src="Photos/images/category-3.jpg">
+    </div>
+</div>
+</div>   
+</div>
+
+
+<!-------- featured products -------->
+<!-- 
+<div class="small-container">
+<h2 class="title">Featured Products</h2>
+<div class="row">
+<div class="col-4">
+    <img src="../Photos/images/product-1.jpg">
+    <h4>Product 1</h4>
+    <div class="add-to-cart">
+        <span class="price">₹499</span>
+        <button class="btn">Add to Cart</button>
+    </div>
+    
+</div>
+<div class="col-4">
+    <img src="Photos/images/product-2.jpg">
+    <h4>Product 1</h4>
+    <div class="add-to-cart">
+        <span class="price">₹499</span>
+        <button class="btn">Add to Cart</button>
+    </div>
+</div>
+<div class="col-4">
+    <img src="Photos/images/product-3.jpg">
+    <h4>Product 1</h4>
+    <div class="add-to-cart">
+        <span class="price">₹499</span>
+        <button class="btn">Add to Cart</button>
+    </div>
+</div>
+<div class="col-4">
+    <img src="Photos/images/product-4.jpg">
+    <h4>Product 1</h4>
+    <div class="add-to-cart">
+        <span class="price">₹499</span>
+        <button class="btn">Add to Cart</button>
+    </div>
+</div>
+</div> -->
+
+
+
+
+
+<h2 class="title">Latest Products</h2>
+
+<div class="small-container">
+    <% if (prods.length > 0) { %>
+        <div class="row">
+            <% for (let product of prods) { %>
+               
+                <div class="col-4">
+                    <a href="/products/<%= product.id %>">
+                        <img src="<%= product.imageUrl %>" alt="<%= product.title %>">
+                    </a>
+                    <h4><%= product.title %></h4>
+                    <div class="add-to-cart">
+                        <span class="price"><%= product.price %></span>
+                        <form action="/cart" method="post">
+                            <button class="btn" type="submit">Add to Cart</button>
+                            <input type="hidden" name="productId" value="<%= product.id %>">
+                        </form>
+                    </div>
+                </div>
+                <% } %>
+        </div>
+            <% } else { %>
+                <h1>No Products Found!</h1>
+                <% } %>
+</div>
+
+
+
+<!-- ------------offer----------- -->
+
+<div class="offer">
+<div class="small-container">
+<div class="row">
+    <div class="col-2">
+        <img class="offer-img" src="./Photos/images/exclusive.png" alt="">
+    </div>
+    <div class="col-2">
+        <p>Exclusively Available Now</p>
+        <h1>Smart Band 4</h1>
+        <small>Mi Watch Lite is not just a smart watch, it has its own unique personality. 
+            There are three color options for the watch case, five color options for the strap.</small> <br>
+
+        <button class="explore-btn">Buy Now &#8594;</button>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- ------------testimonial----------- -->
+<div class="testimonial">
+<div class="small-container">
+<div class="row">
+    <div class="col-3">
+        <i class="fa fa-quote-left"></i>
+        <p>I wanted to take a minute to pass along another success story with your 
+            commerce templates. Our development team was tasked with 
+            building an on-line football game called “Luck of the Draw” 
+            for an entrepreneurial football fan. As with most Web projects 
+             businesses, our team was faced with big dreams and a tight 
+             budget.</p>
+        <img src="./Photos/images/user-1.png">
+        <h3>Sean Parker</h3>
+    </div>
+    <div class="col-3">
+        <i class="fa fa-quote-left"></i>
+        <p>I wanted to take a minute to pass along another success story with your 
+            commerce templates. Our development team was tasked with 
+            building an on-line football game called “Luck of the Draw” 
+            for an entrepreneurial football fan. As with most Web projects 
+             businesses, our team was faced with big dreams and a tight 
+             budget.</p>
+        <img src="./Photos/images/user-2.png">
+        <h3>Jim Artel</h3>
+    </div>
+    <div class="col-3">
+        <i class="fa fa-quote-left"></i>
+        <p>I wanted to take a minute to pass along another success story with your 
+            commerce templates. Our development team was tasked with 
+            building an on-line football game called “Luck of the Draw” 
+            for an entrepreneurial football fan. As with most Web projects 
+             businesses, our team was faced with big dreams and a tight 
+             budget.</p>
+        <img src="./Photos/images/user-3.png">
+        <h3>Jill Shawn</h3>
+    </div>
+</div>
+</div>
+</div>
+
+
+<!-- ------------brands----------- -->
+
+<div class="brands">
+<h2 class="title">Our Partners</h2>
+<div class="small-container">
+<div class="row">
+    <div class="col-5">
+        <img src="Photos/images/logo-coca-cola.png">
+    </div>
+    <div class="col-5">
+        <img src="Photos/images/logo-godrej.png">
+    </div>
+    <div class="col-5">
+        <img src="Photos/images/logo-oppo.png">
+    </div>
+    <div class="col-5">
+        <img src="Photos/images/logo-paypal.png">
+    </div>
+    <div class="col-5">
+        <img src="Photos/images/logo-philips.png">
+    </div>
+</div>
+</div>
+</div>
+
+
+<%- include('../includes/footer.ejs') %>
